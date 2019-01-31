@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en"> <!-- Set this to the main language of your site -->
+<head>
+    <meta charset="utf-8">
+
+    <title>HTML5 Bones :: PAGE TITLE</title>
+
+    <!-- Enter a brief description of your page -->
+    <meta name="description" content="">
+
+    <!-- Define a viewport to mobile devices to use - telling the browser to assume that the page is as wide as the device (width=device-width,
+    and setting the initial page zoom level to be 1 (initial-scale=1.0), and fixing width=device-width for iOS9 (shtink-to-fit=no) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+
+    <!-- Add normalize.css which enables browsers to render all elements more consistently and in line with modern standards as it only targets particular styles that need normalizing -->
+    <link href="css/normalize.css" rel="stylesheet" media="all">
+    <!-- For legacy support (IE 6/7, Firefox < 4, and Safari < 5) use normalize-legacy.css instead -->
+    <!--<link href="css/normalize-legacy.css" rel="stylesheet" media="all">-->
+
+    <!-- Include the site stylesheet -->
+    <link href="css/buefy.min.css" rel="stylesheet" media="all">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet">
+    <link rel="stylesheet" href="//cdn.materialdesignicons.com/3.3.92/css/materialdesignicons.min.css">
+    <link href="css/styles.css" rel="stylesheet" media="all">
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.22/dist/vue.js"></script>
+    <script src="js/buefy.min.js"></script>
+
+    <script src="js/script.js"></script>
+    
+
+    <!-- Include the HTML5 shiv print polyfill for Internet Explorer browsers 8 and below -->
+    <!--[if lt IE 9]><script src="js/html5shiv-printshiv.js" media="all"></script><![endif]-->
+</head>
+<body>
+    
+<div id='app'>
+    <!-- The page header typically contains items such as your site heading, logo and possibly the main site navigation -->
+    <!-- ARIA: the landmark role "banner" is set as it is the prime heading or internal title of the page -->
+    <header role="banner">
+        <h1><abbr title="HyperText Markup Language 5">HTML5</abbr> Bones</h1>
+
+        <!-- ARIA: the landmark role "navigation" is added here as the element contains site navigation
+        NOTE: The <nav> element does not have to be contained within a <header> element, even though the two examples on this page are. -->
+        <nav role="navigation">
+            <!-- This can contain your site navigation either in an unordered list or even a paragraph that contains links that allow users to navigate your site -->
+        </nav>
+
+    </header>
+
+    <!-- If you want to use an element as a wrapper, i.e. for styling only, then <div> is still the element to use -->
+    <div class="wrap">
+
+        <!-- The <main> element is used to enclose the main content, i.e. that which contains the central topic of a document -->
+        <!-- ARIA: the landmark role "main" is added here as it contains the main content of the document, and it is recommended to add it to the
+        <main> element until user agents implement the required role mapping. -->
+        <main id="main" role="main">
+            
+            <div id="landing" class="landingsplash">
+                <video id="landing_video" class="landingsplash__video" autoplay muted loop>
+                    <source src="res/Pan.mp4" type="video/mp4">
+                </video>
+                <img src="res/dragon-logo-tns.svg" class="landingsplash__logo">
+            </div>
+            
+            <!-- The <section> element can be used to enclose content that comes under a related heading.
+            NOTE: The <section> element can contain <article> elements and vice versa, if you think the content warrants it. -->
+            <section id="delivery" class="chapter content">
+                <h2 class="chapter__heading">Daily offer top 4 meals - delivery</h2>
+                <hr class="chapter__line">
+                <div class="chapter__content">
+                    <p class="chapter_desc">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Commodi ea qui hic fugit natus veniam earum vero sint animi, tenetur sed neque quasi impedit ex consectetur rerum nam tempore culpa.</p>
+                    <div id="foodtypes" class="columns">
+                        <div id="foodtype1" class="column iconcard">
+                            <b-icon icon="pizza" size="is-medium"></b-icon>
+                            <h3>asfasfas</h3>
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laborum vel consequuntur illo aliquid, itaque ipsum mollitia sapiente similique deleniti odit exercitationem, earum omnis eius libero ad nisi quia reiciendis quis!</p>
+                        </div>
+                        <div id="foodtype2" class="column iconcard">
+                            <b-icon icon="rice" size="is-medium"></b-icon>
+                            <h3>asfasfasf</h3>
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Explicabo provident optio odit magni itaque, aspernatur in ad numquam aut? Nesciunt alias quam quia inventore necessitatibus obcaecati. Alias rerum laboriosam optio.</p>
+                        </div>
+                        <div id="foodtype3" class="column iconcard">
+                            <b-icon icon="bowl" size="is-medium"></b-icon>
+                            <h3>safasfas</h3>
+                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim at perspiciatis possimus obcaecati minima quis voluptate ab laborum deserunt, vel saepe id explicabo commodi natus corporis suscipit ducimus sint consequatur?</p>
+                        </div>
+                        <div id="foodtype4" class="column iconcard">
+                            <b-icon icon="silverware" size="is-medium"></b-icon>
+                            <h3>lasfasf</h3>
+                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Mollitia in, fuga nisi aperiam natus, dolores ea eligendi autem ipsa minus dolorum velit, tenetur distinctio veritatis recusandae libero. Quia, hic sint?</p>
+                        </div>
+                    </div>
+                </div>
+                
+                
+            </section>
+            <section id="showcase" class="chapter content">
+                <h2 class="chapter__heading">Showcase of our favorite meals</h2>
+                <hr class="chapter__line">
+                <div class="chapter__content">
+                    <div id="showcase_images" class="showcase__images columns is-multiline is-gapless">
+                        <showcaseimg-component v-for="img in showcaseimgs" :imgpath="img" :key="img"/>
+                    </div>
+                   
+                </div>
+                
+            </section>
+            <section id="mobileapp" class="chapter content">
+                <h2 class="chapter__heading">Mobile app - carry your food in your pocket</h2>
+                <hr class="chapter__line">
+                <div  class="chapter__content">
+                    <div id="mobileapp_info" class="mobileapp columns" >
+                        <div id="mobileapp_wrapper" class="mobileapp__wrapper column" >
+                            <div class="phone view_3" id="phone_1">
+                                <iframe src="./index.html" id="frame_1"></iframe>
+                            </div>
+
+                        </div>
+                              
+                        <div id="mobileapp_info_details" class=" column ">
+                            <div id="mobileapp_info_details_1" class="mobileapp__detail">
+                                <b-icon  icon="numeric-1" size="is-medium"></b-icon>
+                                <p class="">Download the app</p>
+                            </div>
+                            <div id="mobileapp_info_details_2" class="mobileapp__detail">
+                                <b-icon class="" icon="numeric-2" size="is-medium"></b-icon>
+                                <p class="">Create account</p>
+                            </div>
+                            <div id="mobileapp_info_details_3" class="mobileapp__detail">
+                                <b-icon class="" icon="numeric-3" size="is-medium"></b-icon>
+                                <p class="">Place Order</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </section>
+            <section id="locations" class="chapter content">
+                <h2 class="chapter__heading">You can find us in all parts of the world.<br />These are some of the places where you can find us</h2>
+                <hr class="chapter__line">
+                <div class="chapter__content">
+                    <div id="cities" class="columns">
+                        <div id="city_1" class="column  city">
+                            <figure class="image ">
+                                <img src="./res/cities/new-york.jpg"id="city_1_logo"></img>
+                            </figure>
+                            <h3>New York</h3>
+                            <ul>
+                                <li><b-icon icon="account" size="is-medium"></b-icon> <span>safasfasfas</span></li>
+                                <li><b-icon icon="email" size="is-medium"></b-icon> <span>asfasfaas</span></li>
+                                <li><b-icon icon="facebook" size="is-medium"></b-icon> <span>asfasfasfas</span></li>
+                            </ul>
+                        </div>
+                        <div id="city_2" class="column is-one-quarter city">
+                            <figure class="image ">
+                                <img  src="./res/cities/london.jpg"id="city_2_logo"></img>
+                            </figure>
+                            <h3>London</h3>
+                            <ul>
+                                <li><b-icon icon="account" size="is-medium"></b-icon> <span>safasfasfas</span></li>
+                                <li><b-icon icon="email" size="is-medium"></b-icon> <span>asfasfaas</span></li>
+                                <li><b-icon icon="facebook" size="is-medium"></b-icon> <span>asfasfasfas</span></li>
+                            </ul>
+                        </div>
+                        <div id="city_3" class="column is-one-quarter city">
+                            <figure class="image ">
+                                <img src="./res/cities/paris.jpg"  id="city_3_logo"></img>
+
+                            </figure>
+                            <h3>Paris</h3>
+                            <ul>
+                                <li><b-icon icon="account" size="is-medium"></b-icon> <span>safasfasfas</span></li>
+                                <li><b-icon icon="email" size="is-medium"></b-icon> <span>asfasfaas</span></li>
+                                <li><b-icon icon="facebook" size="is-medium"></b-icon> <span>asfasfasfas</span></li>
+                            </ul>
+                        </div>
+                        <div id="city_4" class="column is-one-quarter city">
+                            <figure class="image ">
+                                <img src="./res/cities/tokyo.jpg"   id="city_4_logo"></img>
+
+                            </figure>
+                            <h3>Tokyo</h3>
+                            <ul>
+                                <li><b-icon icon="account" size="is-medium"></b-icon> <span>safasfasfas</span></li>
+                                <li><b-icon icon="email" size="is-medium"></b-icon> <span>asfasfaas</span></li>
+                                <li><b-icon icon="facebook" size="is-medium"></b-icon> <span>asfasfasfas</span></li>
+                            </ul>
+                        </div>
+                    </div>
+            </div>
+            </section>
+            <section id="subscription" class="chapter content">
+                <img id="subscription_background" src="res/cooking.jpg"/>
+                <h2 class="chapter__heading">Read the experiences of our customers</h2>
+                <hr class="chapter__line">
+                <div class="chapter__content">
+                    <div id="customers " class="columns">
+                        <div id="customer_1 " class="  customer column is-one-third">
+                            <b-icon icon="chevron-double-down" size="is-medium"></b-icon>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error placeat dolore obcaecati minus quaerat esse illo iste eligendi maxime, cupiditate eaque, nemo autem! Esse obcaecati qui reiciendis, aut sequi saepe.</p>
+                            <div>
+                                <figure class="image ">
+                                  <img  src="./res/people/clint-eastwood-394256_640.jpg"id=""></img>
+                                </figure>
+                                <span>asgasgas agsasgasg</span>
+                            </div>
+                        </div>
+                        <div id="customer_2 "  class= " customer column is-one-third">
+                            <b-icon icon="chevron-double-down" size="is-medium"></b-icon>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus modi vitae nostrum voluptas, perferendis fugit optio, soluta sequi facilis et obcaecati. Porro harum sunt illum quidem dolores voluptatum expedita natus.</p>
+                            <div>
+                                <figure class="image ">
+                                    <img  src="./res/people/jacqueline-kennedy-402038_640.jpg"id=""></img>
+                                </figure>
+                                <span>asfasfas adasdas</span>
+                            </div>   
+                        </div>                 
+                        <div id="customer_3 "  class= " customer column is-one-third">
+                            <b-icon icon="chevron-double-down" size="is-medium"></b-icon>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus aliquam dolorum dolores reiciendis aliquid quasi alias rerum aperiam aut aspernatur mollitia ratione id ab eos, incidunt facilis perspiciatis voluptatum quae!</p>
+                            <div>
+                                <figure class="image ">
+                                    <img  src="./res/people/native-american-391108_640.jpg"id=""></img>
+                                </figure>
+                                <span>asfasfasf asfasf</span>
+                            </div> 
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+            <section id="contact">
+                <h2>Contact US</h2>
+                <hr>
+
+            </section>
+
+        </main>
+
+        <!-- An <aside> is used to enclose content that is additional to the main content but not essential. If it were removed, the meaning of the main content should not be lost, but the content of the <aside> also retains its meaning.
+        NOTE: the aside is placed outside of the <main> element as while its content is related to the content that is within the <main>
+        element, it is not part of it -->
+        <!-- ARIA: the landmark role "complementary" is added here as it contains supporting information for the main content that remains meaningful even when separated from it -->
+        <aside role="complementary">
+
+        </aside>
+
+    </hr>
+
+    <!-- The main page footer can contain items such as copyright and contact information. It can also contain a duplicated navigation of your site which is not usually contained within a <nav> -->
+    <!-- ARIA: the landmark role "contentinfo" is added here as it contains metadata that applies to the parent document -->
+    <footer role="contentinfo">
+
+        <!-- The <address> element contains contact information for the nearest <article> or <body> element. This example is for the <body> -->
+        <address>
+          <p>For further information, please contact <a href="mailto:admin@example.com">Max Mustermann</a>.</p>
+        </address>
+
+        <!-- Copyright information can be contained within the <small> element. The <time> element is used here to indicate that the '2018' is a date -->
+        <small>Copyright &copy; <time>2018</time></small>
+
+    </footer>
+    </div>
+</div>
+</body>
+</html>
+
