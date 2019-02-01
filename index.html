@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"> <!-- Set this to the main language of your site -->
+<html lang="en-us"> <!-- Set this to the main language of your site -->
 <head>
     <meta charset="utf-8">
 
@@ -37,14 +37,45 @@
 <div id='app'>
     <!-- The page header typically contains items such as your site heading, logo and possibly the main site navigation -->
     <!-- ARIA: the landmark role "banner" is set as it is the prime heading or internal title of the page -->
-    <header role="banner">
-        <h1><abbr title="HyperText Markup Language 5">HTML5</abbr> Bones</h1>
-
+    <header id="banner" class="banner" role="banner">
         <!-- ARIA: the landmark role "navigation" is added here as the element contains site navigation
         NOTE: The <nav> element does not have to be contained within a <header> element, even though the two examples on this page are. -->
-        <nav role="navigation">
-            <!-- This can contain your site navigation either in an unordered list or even a paragraph that contains links that allow users to navigate your site -->
+        <nav class="navbar banner__navbar is-transparent" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand  ">
+                <a class="navbar-item navbar__imglink" href="#banner">
+                    <img class ="navbar__img"src="res/dragon-logo-border.svg">
+                </a>
+                <a role="button" @click="ToggleBurger" v-bind:class="BurgerActivation" class="navbar-burger " aria-label="menu" aria-expanded="false">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
+            </div>
+            <div id="navbarBasicExample" v-bind:class="BurgerActivation" class="navbar-menu  makenavbarwhite">
+                <div class="navbar-start is-uppercase">
+                    <a class="navbar-item ">
+                        Order
+                    </a>
+                </div>
+                <div class="navbar-end is-uppercase">
+                    <a class="navbar-item" href="#delivery">Delivery</a>
+                    <a class="navbar-item" href="#mobileapp">Mobile App</a>
+                    <a class="navbar-item" href="#locations">Our Cities</a>
+                    <a class="navbar-item" href="#subscriptions">Subscriptions</a>
+                    <a class="navbar-item" href="#contact">Contact us</a>
+
+                </div>
+            </div>
         </nav>
+        <div id="landing" class="landingsplash">
+            <video id="landing_video" class="landingsplash__video" autoplay muted loop>
+                <source src="res/Pan.mp4" type="video/mp4">
+            </video>
+            <figure class="image landingsplash__logo">
+                <img src="res/dragon-logo-border.svg" class="">
+
+            </figure>
+        </div>
 
     </header>
 
@@ -56,12 +87,15 @@
         <main> element until user agents implement the required role mapping. -->
         <main id="main" role="main">
             
-            <div id="landing" class="landingsplash">
+            <!-- <div id="landing" class="landingsplash">
                 <video id="landing_video" class="landingsplash__video" autoplay muted loop>
                     <source src="res/Pan.mp4" type="video/mp4">
                 </video>
-                <img src="res/dragon-logo-tns.svg" class="landingsplash__logo">
-            </div>
+                <figure class="image landingsplash__logo">
+                    <img src="res/dragon-logo-border.svg" class="">
+ 
+                </figure>
+            </div> -->
             
             <!-- The <section> element can be used to enclose content that comes under a related heading.
             NOTE: The <section> element can contain <article> elements and vice versa, if you think the content warrants it. -->
@@ -69,7 +103,7 @@
                 <h2 class="chapter__heading">Daily offer top 4 meals - delivery</h2>
                 <hr class="chapter__line">
                 <div class="chapter__content">
-                    <p class="chapter_desc">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Commodi ea qui hic fugit natus veniam earum vero sint animi, tenetur sed neque quasi impedit ex consectetur rerum nam tempore culpa.</p>
+                    <p class="chapter__desc">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Commodi ea qui hic fugit natus veniam earum vero sint animi, tenetur sed neque quasi impedit ex consectetur rerum nam tempore culpa.</p>
                     <div id="foodtypes" class="columns">
                         <div id="foodtype1" class="column iconcard">
                             <b-icon icon="pizza" size="is-medium"></b-icon>
@@ -118,19 +152,27 @@
                             </div>
 
                         </div>
-                              
+                        <div class="column is-1">
+
+                        </div>
                         <div id="mobileapp_info_details" class=" column ">
-                            <div id="mobileapp_info_details_1" class="mobileapp__detail">
-                                <b-icon  icon="numeric-1" size="is-medium"></b-icon>
-                                <p class="">Download the app</p>
+                            <div id="mobileapp_info_details_1" class="columns  mobileapp__detail">
+                                <div class="column is-1 ">
+                                    <b-icon  icon="numeric-1" size="is-medium"></b-icon>
+                                </div>
+                                <p class="column">Download the app</p>
                             </div>
-                            <div id="mobileapp_info_details_2" class="mobileapp__detail">
-                                <b-icon class="" icon="numeric-2" size="is-medium"></b-icon>
-                                <p class="">Create account</p>
+                            <div id="mobileapp_info_details_2" class="columns  mobileapp__detail">
+                                <div class="column is-1">
+                                    <b-icon  icon="numeric-2" size="is-medium"></b-icon>
+                                </div>
+                                <p class="column">Create account</p>
                             </div>
-                            <div id="mobileapp_info_details_3" class="mobileapp__detail">
-                                <b-icon class="" icon="numeric-3" size="is-medium"></b-icon>
-                                <p class="">Place Order</p>
+                            <div id="mobileapp_info_details_3" class=" columns mobileapp__detail">
+                                <div class="column is-1">
+                                    <b-icon  icon="numeric-3" size="is-medium"></b-icon>
+                                </div>
+                                <p class="column">Place Order</p>
                             </div>
                         </div>
                     </div>
@@ -191,8 +233,8 @@
                     </div>
             </div>
             </section>
-            <section id="subscription" class="chapter content">
-                <img id="subscription_background" src="res/cooking.jpg"/>
+            <section id="customerexperiences" class="chapter content">
+                <img id="customerexperiences_background" src="res/cooking.jpg"/>
                 <h2 class="chapter__heading">Read the experiences of our customers</h2>
                 <hr class="chapter__line">
                 <div class="chapter__content">
@@ -231,10 +273,88 @@
                 </div>
 
             </section>
-            <section id="contact">
-                <h2>Contact US</h2>
-                <hr>
+            <section id="subscriptions" class="chapter content">
+                <h2 class="chapter__heading">Read the experiences of our customers</h2>
+                <hr class="chapter__line">
+                <div class="subscription__wrapper">
+                <div id="subscription_content" class="chapter__content is-centered columns " >
+                    <article class="box subscription column  ">
+                        <h3 class="is-uppercase	 has-text-weight-normal">American</h3>
+                        <div class="price"><span class="pricenumber is-size-3">$299</span><span class="priceper is-size-7">/month</span> </div>
+                        <span class="is-size-7">7.20$ / per meal</span>
+                        <hr>
+                        <div class="features"><b-icon icon="check" size="is-medium"></b-icon><span>1 meal every day</span></div>
+                        <div class="features"><b-icon icon="check" size="is-medium"></b-icon><span>Order 24/7</span></div>
+                        <div class="features"><b-icon icon="check" size="is-medium"></b-icon><span>Access to new meals</span></div>
+                        <div class="features"><b-icon icon="check" size="is-medium"></b-icon><span>Free delivery</span></div>
+                        <div class="signupdiv"><a id="subsignup_1" class="button is-info is-rounded">Sign up now</a></div>
 
+                    </article>
+                    <div class="column columngap is-narrow"></div>
+                    <article class="box subscription column  ">
+                        <h3 class="is-uppercase	 has-text-weight-light">Absorbo</h3>
+                        <div class="price"><span class="pricenumber is-size-3">$99</span><span class="priceper is-size-7">/month</span> </div>
+                        <span class="is-size-7">8.29$ / per meal</span>
+                        <hr>
+                        <div class="features"><b-icon icon="check" size="is-medium"></b-icon><span>1 meal 15 days/month</span></div>
+                        <div class="features"><b-icon icon="check" size="is-medium"></b-icon><span>Order 24/7</span></div>
+                        <div class="features"><b-icon icon="check" size="is-medium"></b-icon><span>Access to new meals</span></div>
+                        <div class="features"><b-icon icon="check" size="is-medium"></b-icon><span>Free delivery</span></div>
+                        <div class="signupdiv"><a id="subsignup_2" class="button is-info is-rounded">Sign up now</a></div>
+
+                    </article>
+                    <div class="column columngap is-narrow"></div>
+                    <article class="box subscription column ">
+                        <h3 class="is-uppercase	 has-text-weight-light">Muncher</h3>
+                        <div class="price"><span class="pricenumber is-size-3">$9</span><span class="priceper is-size-7">/meal</span> </div>
+                        <span class="is-size-7 mealpricehidden">9.90$ / per meal</span>
+
+                        <hr>
+                        <div class="features"><b-icon icon="check" size="is-medium"></b-icon><span>1 meal</span></div>
+                        <div class="features"><b-icon icon="check" size="is-medium"></b-icon><span>Order from 8 to 24</span></div>
+                        <div class="features"><b-icon icon="cancel" size="is-medium"></b-icon><span>Access to new meals</span></div>
+                        <div class="features"><b-icon icon="check" size="is-medium"></b-icon><span>Free delivery</span></div>
+                        <div class="signupdiv"><a id="subsignup_3" class="button is-info is-rounded">Sign up now</a></div>
+                    </article>
+
+                </div>
+                </div>
+
+            </section>
+            <section id="contact" class="chapter content">
+                <h2 class="chapter__heading">Contact us</h2>
+                <hr class="chapter__line">
+                <div id="contact_content" class="chapter__content columns is-center" >
+                    <!-- Name, Email, Message Importance[dropdown],Recieve News[check],Your message[text area ], button -->
+                    <form id="contactform" class="column">
+                        <b-field  label="Name:">
+                            <b-input placeholder="Name"></b-input>
+                        </b-field>
+                        <b-field label="Email">
+                            <b-input type="email" placeholder="Email">
+
+                            </b-input>
+
+                        </b-field>
+                        <b-field label="Message Importance">
+                            <b-select placeholder="Importance">
+                                <option value="1">Low</option>
+                                <option value="2">Normal</option>
+                                <option value="2">High</option>
+                            </b-select>
+                        </b-field>
+                        <b-field>
+                            <b-checkbox >Recieve News</b-checkbox>
+                        </b-field>
+                        <b-field label="Your Message">
+                            <b-input placeholder="Your message here..." type="textarea"></b-input>
+                        </b-field>
+                        <b-field class="submitfield">
+                            <a id="submitmessage" class="button is-info is-rounded">Submit</a>
+                        </b-field>
+
+                    </form>
+                </div>
             </section>
 
         </main>
@@ -251,15 +371,25 @@
 
     <!-- The main page footer can contain items such as copyright and contact information. It can also contain a duplicated navigation of your site which is not usually contained within a <nav> -->
     <!-- ARIA: the landmark role "contentinfo" is added here as it contains metadata that applies to the parent document -->
-    <footer role="contentinfo">
+    <footer role="contentinfo" class="footer">
+        <nav class="level columns is-centered">
+            <div class="footer__links columns is-center column level-item">
+                <p class="column is-narrow" >About us</p>
+                <p class="column is-narrow">iOS app</p>
+                <p class="column is-narrow" >Android App</p>
+            </div>
+            <div class="footer__center columns column is-center level-item">
+                <p class="column is-narrow" >SUPIT - Algebra</p>
+            </div>
+            <div class="footer__socialmedia columns column is-mobile is-center level-item">
+                <a><b-icon class="column is-narrow  " icon="facebook" size="is-small"></b-icon></a>
+                <a><b-icon class="column is-narrow " icon="reddit" size="is-small"></b-icon></a>
+                <a><b-icon class="column is-narrow " icon="instagram" size="is-small"></b-icon></a>
 
-        <!-- The <address> element contains contact information for the nearest <article> or <body> element. This example is for the <body> -->
-        <address>
-          <p>For further information, please contact <a href="mailto:admin@example.com">Max Mustermann</a>.</p>
-        </address>
 
-        <!-- Copyright information can be contained within the <small> element. The <time> element is used here to indicate that the '2018' is a date -->
-        <small>Copyright &copy; <time>2018</time></small>
+            </div>
+        </nav>
+
 
     </footer>
     </div>

@@ -52,15 +52,27 @@ window.addEventListener('load', function () {
             return{
             m1: "You got to let me know",
             showcaseimgs,
+            burgerisactive:false,
         }
         },
        
         components:{
             showcasecomponent: showcasecomponent,
+        },
+        methods:{
+            ToggleBurger(){
+                this.burgerisactive= !this.burgerisactive;
+            },
+        },
+        computed:{
+            BurgerActivation: function(){
+                return{
+                    'is-active': this.burgerisactive,
+                }
+            }
         }
-      })
-    
-
+        
+      })    
 
     
 })

@@ -46,6 +46,9 @@
             }
         }
     }
+    body{
+        margin:0 0;
+    }
     main{
         font-family: $currentfont;
         display:flex;
@@ -53,11 +56,41 @@
         flex-direction: column;
 
     }
+    .banner__navbar{
+        @include mq('tablet',min){
+            padding:0 $btm-margin;
+        }
+        z-index:6;
+        @media screen and (min-width: 1088px)
+        {
+            margin-bottom: -3.25rem;
+            .navbar-item{
+                color:white;
+            }
+        }
+
+    }
+    .banner{
+        position:relative;
+    }
+    .navbar {
+        &.is-transparent {
+        background-color: transparent;
+        background-image: none;
+        }
+        }
+        
+
     .landingsplash{
         position:relative;
-        padding-bottom:$btm-margin;
+        margin-bottom:$btm-margin;
+        background-color:black;
+        z-index:-2;
+        line-height: 0px;
+        width:100%;
     }
     .landingsplash__video{
+        opacity:0.5;
         position:relative;
         z-index: -1;
         width:100%;
@@ -72,7 +105,12 @@
         transform: translate(-50%, -50%);        
         z-index:1;
         width:20%;
-        height:30%;        
+        height:auto;
+
+        img{
+
+
+        }
     }
     .wrap .chapter{
         display:flex;
@@ -80,7 +118,7 @@
         align-items: center;
         padding:0 $side-margin $btm-margin $side-margin;
         @include mq('tablet') {
-            padding: 0 0 $btm-margin 0;
+            padding: 0 $mobile-side-margin $btm-margin $mobile-side-margin;
         }
         margin: 0 0;
     }
@@ -91,6 +129,9 @@
         text-align: center;
 
     }
+    #main .chapter__desc{
+        margin-bottom: 2rem;
+    }
     .chapter__line{
         width:30%;
         background-color:$linecolor;
@@ -100,6 +141,23 @@
     }
     .chapter__content{
         width:100%;
+        p{
+            @include mq('tablet'){
+                text-align:center;
+            }
+        }
+
+    
+    }
+    .iconcard{
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        p{
+            @include mq('tablet'){
+                text-align:center;
+            }
+        }
 
     }
     .iconcard > span{ 
@@ -112,6 +170,9 @@
         font-family: $currentfont;
         font-weight:lighter;
         text-transform: uppercase;
+        @include mq('tablet'){
+            text-align:center;
+        }
     }
     #showcase{
         padding-left:0;
@@ -155,20 +216,32 @@
         }
     }
     #mobileapp{
-        background-color: rgba(1, 1, 1, 0.048);
+        background-color: #f3f3f3;
         padding-top:$btm-margin;
         width:100%;
         margin-bottom:$btm-margin;
     }
     .mobileapp__detail{
-        display:flex;
-        align-items: center;
+        div{
+            display:flex;
+            align-items: center;
+            justify-content: center;
+            
+        }
         span{
             background-color: $mainiconcolor;
             color: #f3f3f3;
-            margin-right:1rem;
-            margin-bottom:0.5rem;
-            margin-top:0.5rem
+            margin:0 0;
+            box-sizing: initial;
+
+            // margin-right:1rem;
+            // margin-bottom:0.5rem;
+            // margin-top:0.5rem
+        }
+        p{
+            display:flex;
+            align-items: center;
+            justify-content: left;
         }
     }
 
@@ -178,16 +251,23 @@
         width:100%;
 
         .mobileapp__wrapper{
-            margin-left:15%;
+            // margin-left:15%;
             width:100%;
+            background-color: #f3f3f3;
+            display:flex;
+            justify-content: center;
+            align-items: flex-start;
         }
         #mobileapp_info_details{
             margin-left:0%;
             width:100%;
             display:flex;
             flex-direction: column;
-            align-items: left;
             justify-content: center;
+            @include mq('tablet'){
+                align-items: center;
+            }
+            
 
         }
     }
@@ -237,6 +317,7 @@
         display:flex;
         flex-direction: column;
         align-items: center;
+
         h3{
             margin-top: 1rem;
         }
@@ -263,7 +344,7 @@
 
     }
 
-    #subscription{
+    #customerexperiences{
         background-color: #000;
         color: #fff;
         font-weight: 500;
@@ -275,9 +356,10 @@
             z-index: 1;
             color:#fff;
         }
+
        
     } 
-    #subscription_background{
+    #customerexperiences_background{
         opacity: 0.3;
         position: absolute;
         width: 100%;
@@ -287,6 +369,14 @@
 
     } 
     .customer{
+        display:flex;
+        flex-direction: column;
+        @include mq('tablet'){
+            align-items: center;
+            p{
+                text-align: center;
+            }
+            }
         span{
             margin-bottom: 3rem;
         }
@@ -305,6 +395,77 @@
             }
         }
     }
+    #subscriptions{
+        .subscription{
+            width:20rem;
+            height:25rem;
+        }
+        background-color: #f3f3f3;
+        padding-top: $btm-margin;
+        width:100%;
+    }
+    .subscription{
+        .price{
+            color: hsl(204, 86%, 53%);
+        }
+        .features{
+            display:flex;
+            text-align:center;
+            >span:first-child{
+                margin-right:0.8rem;
+            }
+        }
+        .signupdiv{
+            margin-top: 0.8rem;
+            display:flex;
+            text-align:center;
+            justify-content: center;
+        }
+    }
+    #subscriptions .columngap{
+        width:2%;
+    }
+    .mealpricehidden{
+        visibility:hidden;
+    }
+    .subscription__wrapper{
+        background-color:#f3f3f3;
+    }
+    #contact{
+        margin-top:$btm-margin;
+        width:80%;
+    }
+    .submitfield{
+        display:flex;
+        align-items: center;
+        justify-content: center;
+    }
+    #app footer{
+        background-color: hsl(0, 0%, 20%);
+        color:#fafafa;
+        font-weight: strong;
+        .footer__center{
+            color: hsl(0, 0%, 29%)
+        }
+        p{
+            text-align: center;
+        }
+        
+    }
+    #app .footer{
+        nav div{
+            margin-bottom:12px;
+            a span{
+                display:flex;
+                text-align:center;
+                justify-content: center;
+                box-sizing: initial;
+            }
+        }
+    }
+
+
+
 
     
 /* ---------------------------------------------------------

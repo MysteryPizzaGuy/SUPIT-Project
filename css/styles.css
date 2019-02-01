@@ -24,6 +24,10 @@ a:active {
 /* ---------------------------------------------------------
    Author's styles
    ---------------------------------------------------------*/
+body {
+  margin: 0 0;
+}
+
 main {
   font-family: "Open Sans", sans-serif;
   display: -webkit-box;
@@ -38,12 +42,45 @@ main {
           flex-direction: column;
 }
 
+.banner__navbar {
+  z-index: 6;
+}
+
+@media only screen and (min-width: 768px) {
+  .banner__navbar {
+    padding: 0 4rem;
+  }
+}
+
+@media screen and (min-width: 1088px) {
+  .banner__navbar {
+    margin-bottom: -3.25rem;
+  }
+  .banner__navbar .navbar-item {
+    color: white;
+  }
+}
+
+.banner {
+  position: relative;
+}
+
+.navbar.is-transparent {
+  background-color: transparent;
+  background-image: none;
+}
+
 .landingsplash {
   position: relative;
-  padding-bottom: 4rem;
+  margin-bottom: 4rem;
+  background-color: black;
+  z-index: -2;
+  line-height: 0px;
+  width: 100%;
 }
 
 .landingsplash__video {
+  opacity: 0.5;
   position: relative;
   z-index: -1;
   width: 100%;
@@ -60,7 +97,7 @@ main {
           transform: translate(-50%, -50%);
   z-index: 1;
   width: 20%;
-  height: 30%;
+  height: auto;
 }
 
 .wrap .chapter {
@@ -80,7 +117,7 @@ main {
 
 @media only screen and (max-width: 767px) {
   .wrap .chapter {
-    padding: 0 0 4rem 0;
+    padding: 0 5% 4rem 5%;
   }
 }
 
@@ -89,6 +126,10 @@ main {
   font-family: "Open Sans", sans-serif;
   font-weight: lighter;
   text-align: center;
+}
+
+#main .chapter__desc {
+  margin-bottom: 2rem;
 }
 
 .chapter__line {
@@ -103,6 +144,31 @@ main {
   width: 100%;
 }
 
+@media only screen and (max-width: 767px) {
+  .chapter__content p {
+    text-align: center;
+  }
+}
+
+.iconcard {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+@media only screen and (max-width: 767px) {
+  .iconcard p {
+    text-align: center;
+  }
+}
+
 .iconcard > span {
   position: relative;
   left: 50%;
@@ -114,6 +180,12 @@ main {
   font-family: "Open Sans", sans-serif;
   font-weight: lighter;
   text-transform: uppercase;
+}
+
+@media only screen and (max-width: 767px) {
+  .iconcard > h3 {
+    text-align: center;
+  }
 }
 
 #showcase {
@@ -169,27 +241,42 @@ main {
 }
 
 #mobileapp {
-  background-color: rgba(1, 1, 1, 0.048);
+  background-color: #f3f3f3;
   padding-top: 4rem;
   width: 100%;
   margin-bottom: 4rem;
 }
 
-.mobileapp__detail {
+.mobileapp__detail div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .mobileapp__detail span {
   background-color: rgba(48, 89, 151, 0.822);
   color: #f3f3f3;
-  margin-right: 1rem;
-  margin-bottom: 0.5rem;
-  margin-top: 0.5rem;
+  margin: 0 0;
+  -webkit-box-sizing: initial;
+          box-sizing: initial;
+}
+
+.mobileapp__detail p {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
 }
 
 .mobileapp {
@@ -197,8 +284,17 @@ main {
 }
 
 .mobileapp .mobileapp__wrapper {
-  margin-left: 15%;
   width: 100%;
+  background-color: #f3f3f3;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
 }
 
 .mobileapp #mobileapp_info_details {
@@ -211,12 +307,17 @@ main {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-align: left;
-      -ms-flex-align: left;
-          align-items: left;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+@media only screen and (max-width: 767px) {
+  .mobileapp #mobileapp_info_details {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
 }
 
 .phone {
@@ -304,7 +405,7 @@ main {
   width: 100%;
 }
 
-#subscription {
+#customerexperiences {
   background-color: #000;
   color: #fff;
   font-weight: 500;
@@ -314,12 +415,12 @@ main {
   z-index: -1;
 }
 
-#subscription * {
+#customerexperiences * {
   z-index: 1;
   color: #fff;
 }
 
-#subscription_background {
+#customerexperiences_background {
   opacity: 0.3;
   position: absolute;
   width: 100%;
@@ -327,6 +428,27 @@ main {
   -o-object-fit: none;
      object-fit: none;
   z-index: 0;
+}
+
+.customer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+@media only screen and (max-width: 767px) {
+  .customer {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .customer p {
+    text-align: center;
+  }
 }
 
 .customer span {
@@ -352,6 +474,102 @@ main {
 .customer div figure img {
   height: 100%;
   width: 100%;
+}
+
+#subscriptions {
+  background-color: #f3f3f3;
+  padding-top: 4rem;
+  width: 100%;
+}
+
+#subscriptions .subscription {
+  width: 20rem;
+  height: 25rem;
+}
+
+.subscription .price {
+  color: #209cee;
+}
+
+.subscription .features {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
+}
+
+.subscription .features > span:first-child {
+  margin-right: 0.8rem;
+}
+
+.subscription .signupdiv {
+  margin-top: 0.8rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#subscriptions .columngap {
+  width: 2%;
+}
+
+.mealpricehidden {
+  visibility: hidden;
+}
+
+.subscription__wrapper {
+  background-color: #f3f3f3;
+}
+
+#contact {
+  margin-top: 4rem;
+  width: 80%;
+}
+
+.submitfield {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#app footer {
+  background-color: #333333;
+  color: #fafafa;
+  font-weight: strong;
+}
+
+#app footer .footer__center {
+  color: #4a4a4a;
+}
+
+#app footer p {
+  text-align: center;
+}
+
+#app .footer nav div {
+  margin-bottom: 12px;
+}
+
+#app .footer nav div a span {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-sizing: initial;
+          box-sizing: initial;
 }
 
 /* ---------------------------------------------------------
