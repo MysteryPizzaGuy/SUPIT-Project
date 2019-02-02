@@ -56,13 +56,31 @@ main {
   .banner__navbar {
     margin-bottom: -3.25rem;
   }
-  .banner__navbar .navbar-item {
+}
+
+@media screen and (min-width: 1088px) {
+  .text-is-white .navbar-item {
     color: white;
   }
 }
 
+.showsubs-enter-active, .showsubs-leave-active {
+  -webkit-transition: all 5s;
+  transition: all 5s;
+}
+
+.showsubs-enter, .showsubs-leave-to {
+  opacity: 0;
+}
+
 .banner {
   position: relative;
+}
+
+@media screen and (min-width: 1088px) {
+  .text-is-black .navbar-item {
+    color: black;
+  }
 }
 
 .navbar.is-transparent {
@@ -570,6 +588,180 @@ main {
           justify-content: center;
   -webkit-box-sizing: initial;
           box-sizing: initial;
+}
+
+.orderdetails {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding: 0px 0px;
+}
+
+.orderdetails__left {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.orderdetails__left__above {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+}
+
+.orderdetails__left__above .totalcost {
+  font-weight: bold;
+  color: #ff7b00;
+  font-size: 1.5rem;
+}
+
+.orderdetails__left__above .orderdetails__left__above__howmany {
+  font-weight: bolder;
+}
+
+.orderdetails__left__above .orderdetails__left__above__details {
+  font-weight: bolder;
+}
+
+.orderdetails__right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding-left: 0.5rem;
+  padding-top: 1rem;
+}
+
+.orderdetails__wrapper {
+  margin: 0 0;
+  padding: 3% 3%;
+  background-color: rgba(0, 0, 0, 0.027);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+}
+
+.orderdetails__left__textinput {
+  width: 20rem;
+  height: 5rem;
+  padding: 1%;
+  border: 2px solid rgba(0, 0, 0, 0.027);
+  color: #050709;
+}
+
+#currentorder {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 0px 2rem;
+  width: 50%;
+}
+
+#menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 0px 2rem;
+  width: 50%;
+}
+
+.Order__Title {
+  background-color: #3b3b3b;
+  width: 100%;
+  color: #fafafa;
+  text-align: center;
+}
+
+.Orderwrapper {
+  padding-top: 0.5rem;
+}
+
+.FoodType__Title {
+  background-color: #3b3b3b;
+  width: 100%;
+  color: #fafafa;
+  text-align: center;
+}
+
+#modalwrapper .ordersection {
+  background-color: #fafafa;
+  padding: 0 0;
+}
+
+@media only screen and (min-width: 768px) {
+  #modalwrapper .modal-content {
+    width: 960px;
+  }
+}
+
+#orderscreen .FoodType {
+  padding: 0.5rem 0;
+  padding-bottom: 0;
+}
+
+#orderscreen .FoodType .FoodType__Food > div {
+  margin-bottom: 0.2rem;
+}
+
+#orderscreen .FoodType .FoodType__Food .foodsans {
+  margin-bottom: 0;
+}
+
+#orderscreen .FoodType .FoodType__Food__Left {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-line-pack: start;
+      align-content: flex-start;
+}
+
+#orderscreen .FoodType .FoodType__Food__Left span {
+  text-align: left;
+}
+
+#orderscreen .FoodType .FoodType__Food__Left__Title {
+  font-size: 1rem;
+}
+
+#orderscreen .FoodType .FoodType__Food__Left__Subtitle {
+  font-size: 0.7rem;
 }
 
 /* ---------------------------------------------------------

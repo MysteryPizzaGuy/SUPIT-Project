@@ -21,11 +21,13 @@
     <link href="css/buefy.min.css" rel="stylesheet" media="all">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet">
     <link rel="stylesheet" href="//cdn.materialdesignicons.com/3.3.92/css/materialdesignicons.min.css">
+
     <link href="css/styles.css" rel="stylesheet" media="all">
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.22/dist/vue.js"></script>
     <script src="js/buefy.min.js"></script>
-
+    <script  src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
     <script src="js/script.js"></script>
     
 
@@ -40,7 +42,7 @@
     <header id="banner" class="banner" role="banner">
         <!-- ARIA: the landmark role "navigation" is added here as the element contains site navigation
         NOTE: The <nav> element does not have to be contained within a <header> element, even though the two examples on this page are. -->
-        <nav class="navbar banner__navbar is-transparent" role="navigation" aria-label="main navigation">
+        <nav id="mainnavigation" :class="classesfornavbar" role="navigation" aria-label="main navigation">
             <div class="navbar-brand  ">
                 <a class="navbar-item navbar__imglink" href="#banner">
                     <img class ="navbar__img"src="res/dragon-logo-border.svg">
@@ -51,9 +53,9 @@
                     <span aria-hidden="true"></span>
                 </a>
             </div>
-            <div id="navbarBasicExample" v-bind:class="BurgerActivation" class="navbar-menu  makenavbarwhite">
+            <div id="navbarBasicExample" v-bind:class="BurgerActivation" class="navbar-menu ">
                 <div class="navbar-start is-uppercase">
-                    <a class="navbar-item ">
+                    <a @click="ActivateOrderWindow" class="navbar-item " >
                         Order
                     </a>
                 </div>
@@ -274,11 +276,14 @@
 
             </section>
             <section id="subscriptions" class="chapter content">
-                <h2 class="chapter__heading">Read the experiences of our customers</h2>
+                <h2 class="chapter__heading">Subscribe to our Service!</h2>
                 <hr class="chapter__line">
-                <div class="subscription__wrapper">
-                <div id="subscription_content" class="chapter__content is-centered columns " >
-                    <article class="box subscription column  ">
+                <div class="subscription__wrapper" ref="substrans">
+                <transition name="showsubs">
+                
+                <div  v-show="Isitshown()" id="subscription_content" class="chapter__content is-centered columns " >
+                
+                    <article  class="box subscription column  ">
                         <h3 class="is-uppercase	 has-text-weight-normal">American</h3>
                         <div class="price"><span class="pricenumber is-size-3">$299</span><span class="priceper is-size-7">/month</span> </div>
                         <span class="is-size-7">7.20$ / per meal</span>
@@ -291,7 +296,7 @@
 
                     </article>
                     <div class="column columngap is-narrow"></div>
-                    <article class="box subscription column  ">
+                    <article  class="box subscription column  ">
                         <h3 class="is-uppercase	 has-text-weight-light">Absorbo</h3>
                         <div class="price"><span class="pricenumber is-size-3">$99</span><span class="priceper is-size-7">/month</span> </div>
                         <span class="is-size-7">8.29$ / per meal</span>
@@ -304,7 +309,7 @@
 
                     </article>
                     <div class="column columngap is-narrow"></div>
-                    <article class="box subscription column ">
+                    <article  class="box subscription column ">
                         <h3 class="is-uppercase	 has-text-weight-light">Muncher</h3>
                         <div class="price"><span class="pricenumber is-size-3">$9</span><span class="priceper is-size-7">/meal</span> </div>
                         <span class="is-size-7 mealpricehidden">9.90$ / per meal</span>
@@ -316,8 +321,9 @@
                         <div class="features"><b-icon icon="check" size="is-medium"></b-icon><span>Free delivery</span></div>
                         <div class="signupdiv"><a id="subsignup_3" class="button is-info is-rounded">Sign up now</a></div>
                     </article>
-
                 </div>
+                </transition>
+
                 </div>
 
             </section>
@@ -326,37 +332,64 @@
                 <hr class="chapter__line">
                 <div id="contact_content" class="chapter__content columns is-center" >
                     <!-- Name, Email, Message Importance[dropdown],Recieve News[check],Your message[text area ], button -->
-                    <form id="contactform" class="column">
+                    <form id="contactform" class="column" action="http://www.fulek.com/VUA/SUPIT/ContactUs/ "method="get">
                         <b-field  label="Name:">
-                            <b-input placeholder="Name"></b-input>
+                            <b-input name="name" placeholder="Name"></b-input>
                         </b-field>
                         <b-field label="Email">
-                            <b-input type="email" placeholder="Email">
+                            <b-input name="email" type="email" placeholder="Email">
 
                             </b-input>
 
                         </b-field>
                         <b-field label="Message Importance">
-                            <b-select placeholder="Importance">
+                            <b-select name="importance" placeholder="Importance">
                                 <option value="1">Low</option>
                                 <option value="2">Normal</option>
                                 <option value="2">High</option>
                             </b-select>
                         </b-field>
                         <b-field>
-                            <b-checkbox >Recieve News</b-checkbox>
+                            <b-checkbox name="newsletter" >Recieve News</b-checkbox>
                         </b-field>
                         <b-field label="Your Message">
-                            <b-input placeholder="Your message here..." type="textarea"></b-input>
+                            <b-input  name="message" placeholder="Your message here..." type="textarea"></b-input>
                         </b-field>
                         <b-field class="submitfield">
-                            <a id="submitmessage" class="button is-info is-rounded">Submit</a>
+                            <button input-type="submit" id="submitmessage" class="button is-info is-rounded">Submit</button>
                         </b-field>
+
 
                     </form>
                 </div>
             </section>
+            <div id="modalwrapper">
 
+            <b-modal id="orderscreenmodal" :active.sync="isOrderActive"  style="width: auto;" >
+                <section id="orderscreen" class="content chapter ordersection ">
+                    <h2 class="chapter__heading">Order</h2>
+                    <hr class="chapter__line">
+                    <div id="order_content" class="chapter__content columns "  >
+                        <div id="menu" class="column is-half">
+                            <div class="FoodType"  v-for="foodtype in foodDataJsonParsed">
+                                <div class="FoodType__Title"><span>{{foodtype.Naziv}}</span></div>
+                                <div class="FoodType__Food  " v-for="food in foodtype.Ponuda">
+                                    <foodcomponent :id="food.JeloId" :naziv="food.Naziv" :opis="food.Opis" :cijena="food.Cijena" ></foodcomponent>
+                                  
+
+                                </div>
+                            </div>
+                        </div>
+                        <div id="currentorder" class="column is-half">
+                            <div class="Orderwrapper">
+                            <div class="Order__Title"><span>Your Orders</span></div>
+                                <foodpickeditems></foodpickeditems>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </b-modal>
+            </div>
         </main>
 
         <!-- An <aside> is used to enclose content that is additional to the main content but not essential. If it were removed, the meaning of the main content should not be lost, but the content of the <aside> also retains its meaning.
