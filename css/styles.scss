@@ -380,6 +380,12 @@
             z-index: 1;
             color:#fff;
         }
+        @include mq('tablet'){
+            background-color: rgb(34, 34, 34);
+            #customerexperiences_background{
+                visibility:hidden;
+            }
+        }
 
        
     } 

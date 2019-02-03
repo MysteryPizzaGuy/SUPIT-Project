@@ -442,6 +442,15 @@ main {
   color: #fff;
 }
 
+@media only screen and (max-width: 767px) {
+  #customerexperiences {
+    background-color: #222222;
+  }
+  #customerexperiences #customerexperiences_background {
+    visibility: hidden;
+  }
+}
+
 #customerexperiences_background {
   opacity: 0.3;
   position: absolute;
