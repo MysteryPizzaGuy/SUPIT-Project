@@ -363,13 +363,17 @@
                     </form>
                 </div>
             </section>
-            <div id="modalwrapper">
 
-            <b-modal id="orderscreenmodal" :active.sync="isOrderActive"  style="width: auto;" >
-                <section id="orderscreen" class="content chapter ordersection ">
+            <div id="modalwrapper">
+            <b-modal id="orderscreenmodal" :active.sync="isOrderActive" :is-full-page="false" style="width: auto;" >
+
+
+                <section ref="loadingelement" :closable="false" id="orderscreen" class="content chapter ordersection ">
+                        
                     <h2 class="chapter__heading">Order</h2>
                     <hr class="chapter__line">
                     <div id="order_content" class="chapter__content columns "  >
+
                         <div id="menu" class="column is-half">
                             <div class="FoodType"  v-for="foodtype in foodDataJsonParsed">
                                 <div class="FoodType__Title"><span>{{foodtype.Naziv}}</span></div>
@@ -388,6 +392,7 @@
                         </div>
                     </div>
                 </section>
+
             </b-modal>
             </div>
         </main>

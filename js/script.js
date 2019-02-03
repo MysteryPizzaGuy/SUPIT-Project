@@ -1,6 +1,6 @@
 var pickedfoods = [];
 var summedprice=0;
-
+var isLoading=false;
 
 
 var showcasecomponent=Vue.component('showcaseimg-component',{
@@ -343,7 +343,8 @@ window.addEventListener('load', function () {
             foodDataJsonParsed,
             pickedfoods,
             classesfornavbar,
-
+            loadtracker: false,
+            loadingComponent: null,
 
         }
         },
@@ -357,7 +358,19 @@ window.addEventListener('load', function () {
             foodpickeditems:foodpickeditems,
 
         },
+        watch: {
+            isLoading: function () {
+
+                
+              }
+            },
         methods:{
+            open() {
+                this.loadingComponent = this.$loading.open({
+                    container: null
+                })
+
+            },
             Isitshown(){
                 return subsshown;
             },
@@ -380,11 +393,16 @@ window.addEventListener('load', function () {
             ActivateOrderWindow(){
                 $('#orderscreenmodal').modal();
                 this.isOrderActive=true;
+                this.open();
+                let vim=this;
                 this.GetJSONFile().then(function(){
                     for(item in foodData){
                         foodDataJsonParsed.push(foodData[item]);
                     }
+                    vim.loadingComponent.close()
+                   
                 })
+
                
             },
             getPosition( element ) {

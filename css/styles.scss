@@ -170,6 +170,7 @@
         }
 
     .foodtooltipicon{
+        background-color:rgb(255, 230, 0);
     }
     }
     .iconcard{
@@ -501,10 +502,18 @@
         justify-content: space-between;
         align-items: center;
         width:100%;
+        @include mq('tablet'){
+            width:60%;
+            align-items:stretch;
+            width:80%;
+        }
         .totalcost{
             font-weight: bold;
             color:#ff7b00;
             font-size: 1.5rem;
+            @include mq('tablet'){
+                font-size: 1rem;
+            }
         }
         .orderdetails__left__above__howmany{
             font-weight: bolder;
@@ -532,6 +541,9 @@
         background-color: rgba(0, 0, 0, 0.027);
         display:flex;
         justify-content: left;
+        @include mq('tablet'){
+            flex-direction: column;
+        }
 
     }
     .orderdetails__left__textinput{
@@ -540,6 +552,9 @@
         padding: 1%;
         border: 2px solid rgba(0, 0, 0, 0.027);
         color:#050709;
+        @include mq('tablet'){
+            width:15rem;
+        }
 
 
 
@@ -552,6 +567,9 @@
         padding: 0px 2rem;
 
         width:50%;
+        @include mq('tablet'){
+            width:100%;
+        }
     }
     #menu{
         display:flex;
@@ -559,6 +577,15 @@
         padding: 0px 2rem;
 
         width:50%;
+        @include mq('tablet') {
+            width:100%;
+            .FoodType__Food__Left__Title{
+                margin-bottom:2rem;
+                
+            }
+
+        }
+        
     }
     .Order__Title{
         background-color:rgb(59, 59, 59);

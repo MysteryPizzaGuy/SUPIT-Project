@@ -168,6 +168,10 @@ main {
   }
 }
 
+.chapter__content .foodtooltipicon {
+  background-color: #ffe600;
+}
+
 .iconcard {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -619,10 +623,26 @@ main {
   width: 100%;
 }
 
+@media only screen and (max-width: 767px) {
+  .orderdetails__left__above {
+    width: 60%;
+    -webkit-box-align: stretch;
+        -ms-flex-align: stretch;
+            align-items: stretch;
+    width: 80%;
+  }
+}
+
 .orderdetails__left__above .totalcost {
   font-weight: bold;
   color: #ff7b00;
   font-size: 1.5rem;
+}
+
+@media only screen and (max-width: 767px) {
+  .orderdetails__left__above .totalcost {
+    font-size: 1rem;
+  }
 }
 
 .orderdetails__left__above .orderdetails__left__above__howmany {
@@ -663,12 +683,27 @@ main {
           justify-content: left;
 }
 
+@media only screen and (max-width: 767px) {
+  .orderdetails__wrapper {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
 .orderdetails__left__textinput {
   width: 20rem;
   height: 5rem;
   padding: 1%;
   border: 2px solid rgba(0, 0, 0, 0.027);
   color: #050709;
+}
+
+@media only screen and (max-width: 767px) {
+  .orderdetails__left__textinput {
+    width: 15rem;
+  }
 }
 
 #currentorder {
@@ -683,6 +718,12 @@ main {
   width: 50%;
 }
 
+@media only screen and (max-width: 767px) {
+  #currentorder {
+    width: 100%;
+  }
+}
+
 #menu {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -693,6 +734,15 @@ main {
           flex-direction: column;
   padding: 0px 2rem;
   width: 50%;
+}
+
+@media only screen and (max-width: 767px) {
+  #menu {
+    width: 100%;
+  }
+  #menu .FoodType__Food__Left__Title {
+    margin-bottom: 2rem;
+  }
 }
 
 .Order__Title {
