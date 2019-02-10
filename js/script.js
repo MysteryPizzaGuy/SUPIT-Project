@@ -231,53 +231,7 @@ var foodpickeditems=Vue.component('foodpicked-items',{
 
 })
 
-{/* <template slot="empty">
-        <section class="section">
-            <div class="content has-text-grey has-text-centered">
-                <p>
-                    <b-icon
-                        icon="emoticon-sad"
-                        size="is-large">
-                    </b-icon>
-                </p>
-                <p>Nothing here.</p>
-            </div>
-        </section>
-    </template> */}
 
-// var modalOrder=Vue.component('b-ordermodal',{
-//     template:`
-//                 <section id="orderscreen" :width="960" style="width:auto " class="content chapter ordersection modal-content">
-//                     <h2 class="chapter__heading">Contact us</h2>
-//                     <hr class="chapter__line">
-//                     <div id="order_content" class="chapter__content columns is-center"  >
-//                         <div id="menu" class="column is-half">
-//                             <div class="FoodType"  v-for="foodtype in foodDataJsonParsed">
-//                                 <div class="FoodType__Title"><span>{{foodtype.Naziv}}</span></div>
-//                                 <div class="FoodType__Food level " v-for="food in foodtype.Ponuda">
-//                                     <div class="FoodType__Food__Left level-left">
-//                                         <span class="FoodType__Food__Left__Title  level-item  title">{{food.Naziv}}</span>
-//                                         <span class="FoodType__Food__Left__Subtitle level-item  subtitle">{{food.Opis}}</span>
-//                                     </div>
-//                                     <div class="FoodType__Food__Right level-right">
-//                                         <button class="button is-rounded is-alert">{{food.Cijena}}</button>
-//                                     </div>
-//                                 </div>
-//                             </div>
-//                         </div>
-//                         <div id="currentorder" class="column is-half">
-
-//                         </div>
-//                     </div>
-//                 </section>
-//     `,
-//     props:[
-//     ],
-//     data:function(){
-//         return{
-//         }
-//     }
-// })
 window.addEventListener('load', function () {
     var classesfornavbar=['navbar', 'banner__navbar', 'is-transparent','text-is-white']
     var showcaseimgs = [];
