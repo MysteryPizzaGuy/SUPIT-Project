@@ -168,10 +168,6 @@ main {
   }
 }
 
-.chapter__content .foodtooltipicon {
-  background-color: #ffe600;
-}
-
 .iconcard {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -817,10 +813,15 @@ main {
 
 #orderscreen .FoodType .FoodType__Food__Left__Title {
   font-size: 1rem;
+  max-width: 16rem;
 }
 
 #orderscreen .FoodType .FoodType__Food__Left__Subtitle {
   font-size: 0.7rem;
+}
+
+#orderscreen .FoodType .FoodType__Food:nth-child(2) {
+  margin-top: 0.5rem;
 }
 
 /* ---------------------------------------------------------

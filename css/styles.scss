@@ -170,7 +170,6 @@
         }
 
     .foodtooltipicon{
-        background-color:rgb(255, 230, 0);
     }
     }
     .iconcard{
@@ -623,9 +622,11 @@
             
    }
     #orderscreen{
+        
      .FoodType{
         padding: 0.5rem 0;
         padding-bottom: 0;
+        
         .FoodType__Food{
             >div{
                 margin-bottom:0.2rem;
@@ -649,9 +650,13 @@
         }
         .FoodType__Food__Left__Title{
             font-size: 1rem;
+            max-width:16rem;
         }
         .FoodType__Food__Left__Subtitle{
             font-size: 0.7rem;
+        }
+        .FoodType__Food:nth-child(2){
+            margin-top: 0.5rem;
         }
     }
 }

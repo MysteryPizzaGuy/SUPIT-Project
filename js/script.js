@@ -216,11 +216,11 @@ var foodpickeditems=Vue.component('foodpicked-items',{
    
     watch: {
         pickedfoods: function () {
-            console.log("Watcher fires");
             let t= 0;
             for(item in this.pickedfoods){
                 t+=this.pickedfoods[item].fullprice;
             }
+            summedprice=t;
             this.summedprice=t;
           }
         },
